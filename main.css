@@ -1,3 +1,139 @@
-body {
-    color:aliceblue;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* COLOR PALATTE: https://coolors.co/3d3d3d-1f1f1f-000000-131a18-25332f-4a665e-578e7e-abc4b5-d5dfd1-fffaec */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+.top {
+    position: relative;
+    height: 100vh;
+    background-color: #1f1f1f;
+    overflow: hidden; 
+    /* what is overflow??? what is the asterisk stuff??? */
+}
+
+.mainContents {
+    position: relative;
+    background-color: #F5ECD5;
+    font-family: "Raleway", sans-serif;
+    overflow: hidden;
+    color:#1f1f1f;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #F5ECD5;
+    font-family: "Raleway", sans-serif;
+    font-size: clamp(2rem, 3.5vw, 6rem);
+    font-weight: 400;
+    text-align: center;
+    z-index: 1;
+}
+
+a {
+    color: #d5dfd1;
+    font-family: "Raleway", sans-serif;
+}
+
+.navbar {
+    background-color: #272727;
+    padding: 1.1%;
+    text-align: center;
+}
+
+.container {
+    animation: moveShape 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+}
+
+.movingShape { 
+ width: 450px;
+ /* position: absolute;
+ top: 12%;
+ left: 20%; */
+ aspect-ratio: 8/7;
+ background: linear-gradient(
+    rgba(19, 26, 24) 0%,
+    rgba(87, 142, 126) 40%,
+    rgb(213, 223, 209) 100%
+ );
+ border-radius: 45% 20% 70% 80% / 30% 33% 100% 60%;   
+ filter: blur(20px);
+ animation: changeShape 6s linear infinite, rotateShape 12s linear infinite;
+}
+
+@keyframes rotateShape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveShape {
+    0%, 100% {
+        transform: translate(20%, 0);
+    }
+    25% {
+        transform: translate(35%, 10vh);
+    }
+    50% {
+        transform: translate(45%, 20vh);
+    }
+    75% {
+        transform: translate(25%, 30vh);
+    }
+}
+
+@keyframes changeShape {
+    0%, 100% {
+        border-radius: 45% 20% 70% 80% / 30% 33% 100% 60%;   
+    }
+    20% {
+        border-radius: 100% 17% 50% 100% / 30% 100% 50% 55%;   
+    }
+    40% {
+        border-radius: 45% 90% 70% 85% / 30% 33% 85% 79%;   
+    }
+    60% {
+        border-radius: 60% 17% 50% 97% / 30% 27% 100% 65%;   
+    }
+    80% {
+        border-radius: 60% 17% 40% 77% / 50% 45% 90% 50%;   
+    }
+}
+
+@media (max-width: 1000px) {
+    .blob {
+        width: 300px;
+    }
+    @keyframes moveShape {
+        0%, 100% {
+            transform: translate(20%, 10vh);
+        }
+        25% {
+            transform: translate(35%, 30vh);
+        }
+        50% {
+            transform: translate(45%, 40vh);
+        }
+        75% {
+            transform: translate(25%, 50vh);
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .blob {
+        width: 250px;
+    }
+
+}
+/* Included in palette: F5ECD5 and 578E7E; #FFFAEC;# 3D3D3D  */
